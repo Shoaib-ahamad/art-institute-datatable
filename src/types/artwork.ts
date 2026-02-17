@@ -1,0 +1,40 @@
+// src/types/artwork.ts
+export interface Artwork {
+  id: number;
+  title: string;
+  place_of_origin: string;
+  artist_display: string;
+  inscriptions: string;
+  date_start: number;
+  date_end: number;
+}
+
+export interface ApiResponse {
+  data: Artwork[];
+  pagination: {
+    total: number;
+    limit: number;
+    offset: number;
+    total_pages: number;
+    current_page: number;
+    next_url: string | null;
+    prev_url: string | null;
+  };
+  config: {
+    iiif_url: string;
+    website_url: string;
+  };
+}
+
+export interface SelectionState {
+  selectedIds: Set<number>;
+  deselectedIds: Set<number>;
+}
+
+export interface PaginationState {
+  first: number;
+  rows: number;
+  page: number;
+  pageCount: number;
+  totalRecords: number;
+}

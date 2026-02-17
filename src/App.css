@@ -1,0 +1,96 @@
+/* src/App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for PrimeReact components */
+.p-datatable .p-checkbox {
+  @apply relative;
+}
+
+.p-datatable .p-checkbox .p-checkbox-box {
+  @apply border-2 rounded transition-all duration-200;
+}
+
+.p-datatable .p-checkbox.p-highlight .p-checkbox-box {
+  @apply border-blue-500 bg-blue-500;
+}
+
+.p-datatable .p-checkbox .p-checkbox-box.p-highlight {
+  @apply border-blue-500 bg-blue-500;
+}
+
+/* Header checkbox with partial selection */
+.p-datatable .p-checkbox.p-checkbox-some-selected .p-checkbox-box {
+  @apply border-blue-500 bg-blue-100 dark:bg-blue-900;
+}
+
+.p-datatable .p-checkbox.p-checkbox-some-selected .p-checkbox-box::after {
+  content: '';
+  @apply absolute w-2 h-0.5 bg-blue-500 dark:bg-blue-300 rounded;
+}
+
+/* Hover effects */
+.p-datatable .p-datatable-tbody > tr:hover {
+  @apply bg-blue-50 dark:bg-gray-800 transition-colors duration-200;
+}
+
+/* Selected row highlight */
+.p-datatable .p-datatable-tbody > tr.p-highlight {
+  @apply bg-blue-100 dark:bg-blue-900;
+}
+
+/* Selection panel animations */
+.selection-panel {
+  @apply animate-fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-600 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-500;
+}
+
+/* Checkbox alignment fix */
+.p-datatable thead th .p-checkbox,
+.p-datatable tbody td .p-checkbox {
+  @apply mx-auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    @apply px-2;
+  }
+  
+  .p-datatable {
+    @apply text-sm;
+  }
+}
